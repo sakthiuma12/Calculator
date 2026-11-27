@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Simple Calculator</title>
+    <link rel="stylesheet" href="{% static 'calculator/styles.css' %}">
+    <script src="{% static 'calculator/calculator.js' %}" defer></script>
+</head>
+<body>
+    <main class="page">
+        <section class="calculator" aria-label="Calculator">
+            <header class="calculator__header">
+                <p class="eyebrow">Everyday arithmetic</p>
+                <h1>Calculator</h1>
+            </header>
+
+            <div class="display" aria-live="polite">
+                <div class="display__expression" id="expression">Ready</div>
+                <output class="display__value" id="display">0</output>
+            </div>
+
+            <p class="error" id="error" role="alert"></p>
+            <form class="csrf-form" aria-hidden="true">
+                {% csrf_token %}
+            </form>
+
+            <div class="keypad" id="keypad">
+                <button class="key key--utility" type="button" data-action="clear">AC</button>
+                <button class="key key--utility" type="button" data-action="delete" aria-label="Delete last digit">DEL</button>
+                <button class="key key--operator" type="button" data-operator="/">÷</button>
+                <button class="key key--operator" type="button" data-operator="*">×</button>
+
+                <button class="key" type="button" data-digit="7">7</button>
+                <button class="key" type="button" data-digit="8">8</button>
+                <button class="key" type="button" data-digit="9">9</button>
+                <button class="key key--operator" type="button" data-operator="-">−</button>
+
+                <button class="key" type="button" data-digit="4">4</button>
+                <button class="key" type="button" data-digit="5">5</button>
+                <button class="key" type="button" data-digit="6">6</button>
+                <button class="key key--operator" type="button" data-operator="+">+</button>
+
+                <button class="key" type="button" data-digit="1">1</button>
+                <button class="key" type="button" data-digit="2">2</button>
+                <button class="key" type="button" data-digit="3">3</button>
+                <button class="key key--equals" type="button" data-action="equals">=</button>
+
+                <button class="key key--zero" type="button" data-digit="0">0</button>
+                <button class="key" type="button" data-action="decimal">.</button>
+            </div>
+        </section>
+
+        <aside class="history" aria-labelledby="history-title">
+            <div class="history__heading">
+                <div>
+                    <p class="eyebrow">Your recent work</p>
+                    <h2 id="history-title">History</h2>
+                </div>
+                <span class="history__count">{{ calculations|length }}</span>
+            </div>
+            <ol class="history__list" id="history-list">
+                {% for calculation in calculations %}
+                    <li class="history__item">
+                        <span class="history__expression">{{ calculation.expression }}</span>
+                        <strong>{{ calculation.result }}</strong>
+                    </li>
+                {% empty %}
+                    <li class="history__empty" id="history-empty">Your calculations will appear here.</li>
+                {% endfor %}
+            </ol>
+        </aside>
+    </main>
+</body>
+</html>
