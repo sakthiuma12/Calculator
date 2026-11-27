@@ -1,5 +1,24 @@
-<<<<<<< HEAD
 # Simple Calculator
+
+**Ex.No:** 06
+
+**Date:** __________
+
+## Aim
+
+To design and develop a calculator using Django, HTML, CSS, and JavaScript that performs addition, subtraction, multiplication, and division.
+
+## Algorithm
+
+1. Create a Django project and a calculator app.
+2. Create an HTML page for the calculator interface and display.
+3. Use CSS to arrange and style the calculator buttons and display.
+4. Use JavaScript to handle digit, operator, clear, and calculate button clicks.
+5. Send each calculation to the Django app and validate the inputs.
+6. Display the result and save the calculation in the SQLite database.
+7. Test the arithmetic operations and error handling.
+
+## Project names
 
 - **Django project:** `calculator_project`
 - **Django app:** `calculator`
@@ -7,6 +26,8 @@
 - **Database:** SQLite
 
 ## Setup on Windows
+
+Run these commands from the project folder:
 
 ```powershell
 python -m venv .venv
@@ -18,29 +39,7 @@ python manage.py runserver
 ```
 
 Open `http://127.0.0.1:8000/` after starting the development server.
-=======
-# Calculator
-Ex.No:06 JavaScript Calculator
-Date:
-AIM
-To design and develop a simple calculator using HTML, CSS, and JavaScript to perform basic arithmetic operations such as addition, subtraction, multiplication, and division.
 
-ALGORITHM
-Create an HTML page to design the calculator interface.
-Create a display field to show the numbers and calculation results.
-Create buttons for digits from 0 to 9 and arithmetic operators.
-Use CSS to arrange and style the calculator buttons and display.
-Write JavaScript functions to handle button clicks.
-Store the entered numbers and operators in the calculator display.
-Use JavaScript to evaluate the arithmetic expression.
-Display the calculated result on the calculator screen.
-Provide a clear button to reset the calculator.
-Test the calculator with different arithmetic operations.
-PROGRAM
-OUTPUT
-RESULT
-Thus, a JavaScript-based calculator was successfully designed and developed to perform basic arithmetic operations using HTML, CSS, and JavaScript.
+## Result
 
-RESULT
-Thus, a JavaScript-based calculator was successfully designed and developed to perform basic arithmetic operations using HTML, CSS, and JavaScript.
->>>>>>> ec69c64b7a70c2197f871c6fc01f8a4b519fc143
+Thus, a Django-based calculator was designed and developed to perform basic arithmetic operations and retain recent calculations.
